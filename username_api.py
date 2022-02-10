@@ -15,7 +15,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-patterns = yaml.load(open('websites.yml'))
+patterns = yaml.safe_load(open('websites.yml'))
 
 cache = SimpleCache()
 

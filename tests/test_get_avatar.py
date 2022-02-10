@@ -6,8 +6,8 @@ from parameterized import parameterized
 
 import username_api
 
-data = yaml.load(open(os.path.join('tests', 'test_data.yml')))
-websites = yaml.load(open('websites.yml'))
+data = yaml.safe_load(open(os.path.join('tests', 'test_data.yml')))
+websites = yaml.safe_load(open('websites.yml'))
 
 
 def load_test_cases(type_):

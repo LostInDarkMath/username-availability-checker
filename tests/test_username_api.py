@@ -9,8 +9,8 @@ import yaml
 
 import username_api
 
-data = yaml.load(open(os.path.join('tests', 'test_data.yml')))
-websites = yaml.load(open('websites.yml'))
+data = yaml.safe_load(open(os.path.join('tests', 'test_data.yml')))
+websites = yaml.safe_load(open('websites.yml'))
 
 AvailabilityTestCase = collections.namedtuple(
     'AvailabilityTestCase',
@@ -57,8 +57,8 @@ def generate_random_valid_username(website, length):
     for random_username in generate_random_username(website, length):
         if username_api.check_format(website, random_username):
             return random_username
-    raise Exception('Cannot generate valid username for username for {} of length {}',
-                    website, length)
+    raise ValueError('Cannot generate valid username for username for {} of length {}',
+                     website, length)
 
 
 def assert_response(app, website, user, status):
