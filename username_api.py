@@ -5,11 +5,11 @@ import uuid
 
 import requests as r
 import yaml
+from flask_cors import cross_origin, CORS
 from requests_toolbelt.utils import dump
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify
-from flask.ext.cors import CORS, cross_origin
-from werkzeug.contrib.cache import SimpleCache
+from cachelib import SimpleCache
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -56,9 +56,9 @@ def log_response(msg, response, website, username):
     Generate directory if it doesn't exist.
     """
     # Generates unique id for this response.
-    id = uuid.uuid4().hex
+    id_ = uuid.uuid4().hex
 
-    filename = 'static/errors/{}_{}_{}.dump'.format(website, username, id)
+    filename = 'static/errors/{}_{}_{}.dump'.format(website, username, id_)
 
     os.makedirs(os.path.dirname(filename), exist_ok=True)
 
@@ -66,7 +66,7 @@ def log_response(msg, response, website, username):
         # Note: https://toolbelt.readthedocs.io/en/latest/dumputils.html
         f.write(dump.dump_all(response).decode('utf-8'))
 
-    logger.warning('%s\nid: %s', msg, id)
+    logger.warning('%s\nid: %s', msg, id_)
 
 
 def get_profile_url(website, username):

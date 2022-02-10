@@ -1,6 +1,4 @@
-# Username Availability Checker
-
-[![Join the chat at https://gitter.im/username-availability-checker/Lobby](https://badges.gitter.im/username-availability-checker/Lobby.svg)](https://gitter.im/username-availability-checker/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Fork of the Username Availability Checker
 
 Check if a username can or cannot be taken on a bunch of popular social websites (such as Twitter, Instagram, Soundcloud, Github etc.) 
 

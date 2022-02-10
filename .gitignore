@@ -18,4 +18,4 @@ __pycache__/
 static/logs.log
 static/errors/*
 
-./idea
+.idea

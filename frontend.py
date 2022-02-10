@@ -5,8 +5,8 @@ import json
 
 from dotenv import load_dotenv
 from flask import Flask, request, render_template
-from flask.ext.cors import CORS, cross_origin
 import yaml
+from flask_cors import cross_origin, CORS
 
 app = Flask(__name__,
             static_url_path='',
